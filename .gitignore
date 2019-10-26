@@ -8,3 +8,4 @@ compile_commands.json
 CTestTestfile.cmake
 .idea
 cmake-build-debug
+/src/checkers-cpp/cmake-build-debug
