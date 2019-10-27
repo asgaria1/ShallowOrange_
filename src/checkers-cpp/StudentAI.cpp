@@ -1,10 +1,10 @@
 #include "StudentAI.h"
 #include <random>
-
+int COUNT = 0;
 //The following part should be completed by students.
 //The students can modify anything except the class name and exisiting functions and varibles.
 StudentAI::StudentAI(int col,int row,int p)
-	:AI(col, row, p)
+        :AI(col, row, p)
 {
     board = Board(col,row,p);
     board.initializeGame();
@@ -21,11 +21,16 @@ Move StudentAI::GetMove(Move move)
     } else{
         board.makeMove(move,player == 1?2:1);
     }
+    COUNT++;
     vector<vector<Move> > moves = board.getAllPossibleMoves(player);
     for (int i = 0; i < moves.size(); i++){
         for (int j = 0; j < moves[i].size(); j++){
             //make move on board so u can pass it to minimax function
             board.makeMove(moves[i][j], player);
+//            if (COUNT == 14){
+//                cout<<"board after move i j: "<<endl;
+//                board.showBoard();
+//            }
             int result = basic_minimax(board, player, 3, "min"); //will return a number for this move, the higher the better
             if (result > curr) {
                 curr = result;
@@ -68,6 +73,16 @@ int StudentAI::getScore(Board board, int player)
 }
 
 int StudentAI::basic_minimax(Board board, int player, int depth, string state){
+//    if (COUNT == 14 && depth == 2){
+//        cout<<"board on depth 2 of iteration 14:"<<endl;
+//        board.showBoard();
+//        vector<vector<Move> > moves = board.getAllPossibleMoves(player);
+//        for (int i = 0; i < moves.size(); i++){
+//            for (int j = 0; j < moves[i].size(); j++){
+//                cout<<j<<"th move for chess piece #"<< i <<": " << moves[i][j].toString() << endl;
+//            }
+//        }
+//    }
     //the board object do not know whose turn it is, its makeMove simply takes a player argument and act the move
     //for that player. The turn order is maintained by GameLogic.
     //Therefore, in order to make the move for the right player on each recursive level, we need to check whether if
@@ -82,7 +97,7 @@ int StudentAI::basic_minimax(Board board, int player, int depth, string state){
     }
     int thisTurnPlayer;
     int curBestValue;//keeping track of the best val of move I can make, if im a min then the lower the better, if im
-                    //a max then higher the better
+    //a max then higher the better
     //Move bestMove; //keeping track of the actual best move to be made NO NEED
 
     if (state=="max"){
@@ -93,17 +108,31 @@ int StudentAI::basic_minimax(Board board, int player, int depth, string state){
         thisTurnPlayer = player == 1? 2:1; //reverse if state is min
         curBestValue = INT_MAX;
     }
-
+    if (COUNT == 14 && depth == 2) {
+        cout << "hi" << endl;
+    }
     vector<vector<Move> > moves = board.getAllPossibleMoves(thisTurnPlayer); //get the moves for the player moving this turn
 
+    if (COUNT == 14 && depth == 2) {
+        cout << "hello" << endl;
+    }
     for (int i = 0; i < moves.size(); i++){
         for (int j = 0; j < moves[i].size(); j++){
             //make move on board so u can pass it to minimax function
+//            if (COUNT == 14 && depth == 2) {
+//                cout << "before making move " << i << " " << j << ": ";
+//                board.showBoard();
+//            }
+
             board.makeMove(moves[i][j], thisTurnPlayer);
+//            if (COUNT == 14 && depth == 2) {
+//                cout << "after making move " << i << " " << j << ": ";
+//                board.showBoard();
+//            }
             string nextState = state == "min"? "max":"min";
             int result = basic_minimax(board, player, depth -1, nextState); //will return a number for this move, the higher the better
-                            //passed depth -1 for recursive base case + passed next state instead of state because u want to
-                            //recursively call the next state, not the current state
+            //passed depth -1 for recursive base case + passed next state instead of state because u want to
+            //recursively call the next state, not the current state
             //=================================== kuixi break
             if ( state == "min" ){
                 if (result < curBestValue) {
@@ -116,7 +145,11 @@ int StudentAI::basic_minimax(Board board, int player, int depth, string state){
                     //bestMove = moves[i][j];
                 }
             }
+//            cout<<"before undoing move"<<i << " " << j << ": "<< endl;
+//            board.showBoard();
             board.Undo(); //undo change in order to test another move
+//            cout<<"after undoing move"<<i << " " << j << ": "<< endl;
+//            board.showBoard();
         }
     }
     return curBestValue;
