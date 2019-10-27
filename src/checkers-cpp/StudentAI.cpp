@@ -13,6 +13,7 @@ StudentAI::StudentAI(int col,int row,int p)
 
 Move StudentAI::GetMove(Move move)
 {
+
     if (move.seq.empty())
     {
         player = 1;
@@ -25,8 +26,33 @@ Move StudentAI::GetMove(Move move)
     int j = rand() % (checker_moves.size());
     Move res = checker_moves[j];
     board.makeMove(res,player);
+    cout<<getScore(board)<<endl;
     return res;
 
 
 }
 
+int StudentAI::getScore(Board board)
+{
+    int myCount = 0;
+    int oppCount = 0;
+    string me = player == 1? "B":"W";
+    string opp = me =="B"? "W":"B";
+    for (int row = 0; row < board.board.size(); row++){
+        for (int col = 0; col < board.board[row].size(); col++){
+            if (board.board[row][col].color == me){
+                myCount++;
+            }
+            else if (board.board[row][col].color == opp){
+                oppCount++;
+
+            }
+
+        }
+
+    }
+    return myCount - oppCount;
+
+
+
+}

@@ -12,6 +12,9 @@ public:
     Board board;
 	StudentAI(int col, int row, int p);
 	virtual Move GetMove(Move board);
+
+	//=================================
+	int getScore(Board board); //get the heuristic score for the current board, which number of my pieces - number of my opponent's
 };
 
 #endif //STUDENTAI_H

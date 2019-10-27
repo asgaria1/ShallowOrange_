@@ -33,6 +33,7 @@ Board::Board(int col, int row,int p)
 
 void Board::showBoard()
 {
+    //cout<<"blackCount: "<<blackCount<<", WhiteCount: "<<whiteCount<<endl;
     cout << setw(2) << " ";
     for (int j = 0; j < col; ++j)
     {
