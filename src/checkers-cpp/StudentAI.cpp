@@ -19,11 +19,11 @@ Move StudentAI::GetMove(Move move)
     {
         player = 1;
     } else{
-        //board.makeMove(move,player == 1?2:1);
+        board.makeMove(move,player == 1?2:1);
     }
     vector<vector<Move> > moves = board.getAllPossibleMoves(player);
-    for (int i = 0; i <= moves.size(); i++){
-        for (int j = 0; j <= moves[i].size(); j++){
+    for (int i = 0; i < moves.size(); i++){
+        for (int j = 0; j < moves[i].size(); j++){
             //make move on board so u can pass it to minimax function
             board.makeMove(moves[i][j], player);
             int result = basic_minimax(board, player, 3, "min"); //will return a number for this move, the higher the better
@@ -35,6 +35,7 @@ Move StudentAI::GetMove(Move move)
         }
     }
     cout<<"done finding moves: "<<bestMove.toString()<<endl;
+    board.makeMove(bestMove, player);
     return bestMove;
     //int i = rand() % (moves.size());
     //vector<Move> checker_moves = moves[i];
@@ -74,6 +75,7 @@ int StudentAI::basic_minimax(Board board, int player, int depth, string state){
     //max then the current player taking the turn is the same as player, else it is the opponent.. Another way to do this
     //is to change it to the right player when doing the recursive call, this way we just have to check when we do the final
     //evaluation...
+    //board.showBoard();
     if (depth == 0) {
 
         return getScore(board, player);
@@ -94,8 +96,8 @@ int StudentAI::basic_minimax(Board board, int player, int depth, string state){
 
     vector<vector<Move> > moves = board.getAllPossibleMoves(thisTurnPlayer); //get the moves for the player moving this turn
 
-    for (int i = 0; i <= moves.size(); i++){
-        for (int j = 0; j <= moves[i].size(); j++){
+    for (int i = 0; i < moves.size(); i++){
+        for (int j = 0; j < moves[i].size(); j++){
             //make move on board so u can pass it to minimax function
             board.makeMove(moves[i][j], thisTurnPlayer);
             string nextState = state == "min"? "max":"min";
