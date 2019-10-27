@@ -14,7 +14,9 @@ public:
 	virtual Move GetMove(Move board);
 
 	//=================================
-	int getScore(Board board); //get the heuristic score for the current board, which number of my pieces - number of my opponent's
+	int getScore(Board board, int player); //get the heuristic score for the current board, which number of my pieces - number of my opponent's
+    int basic_minimax(Board board, int player, int depth, string state); //basic minimax alg for determining move for studentAI
+
 };
 
 #endif //STUDENTAI_H
