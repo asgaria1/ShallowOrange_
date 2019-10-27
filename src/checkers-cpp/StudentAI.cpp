@@ -26,7 +26,7 @@ Move StudentAI::GetMove(Move move)
         for (int j = 0; j <= moves[i].size(); j++){
             //make move on board so u can pass it to minimax function
             board.makeMove(moves[i][j], player);
-            int result = basic_minimax(board, player, 4, "min"); //will return a number for this move, the higher the better
+            int result = basic_minimax(board, player, 3, "min"); //will return a number for this move, the higher the better
             if (result > curr) {
                 curr = result;
                 bestMove = moves[i][j];
@@ -34,6 +34,7 @@ Move StudentAI::GetMove(Move move)
             board.Undo(); //undo change in order to test another move
         }
     }
+    cout<<"done finding moves: "<<bestMove.toString()<<endl;
     return bestMove;
     //int i = rand() % (moves.size());
     //vector<Move> checker_moves = moves[i];
@@ -80,7 +81,7 @@ int StudentAI::basic_minimax(Board board, int player, int depth, string state){
     int thisTurnPlayer;
     int curBestValue;//keeping track of the best val of move I can make, if im a min then the lower the better, if im
                     //a max then higher the better
-    Move bestMove; //keeping track of the actual best move to be made
+    //Move bestMove; //keeping track of the actual best move to be made NO NEED
 
     if (state=="max"){
         thisTurnPlayer = player; //since state is max then the player moving this turn is the same as the init player
@@ -105,15 +106,16 @@ int StudentAI::basic_minimax(Board board, int player, int depth, string state){
             if ( state == "min" ){
                 if (result < curBestValue) {
                     curBestValue = result;
-                    bestMove = moves[i][j];
+                    //bestMove = moves[i][j];
                 }
             }else { // state == "max"
                 if (result > curBestValue) {
                     curBestValue = result;
-                    bestMove = moves[i][j];
+                    //bestMove = moves[i][j];
                 }
             }
             board.Undo(); //undo change in order to test another move
         }
     }
+    return curBestValue;
 }
