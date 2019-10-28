@@ -13,7 +13,7 @@ StudentAI::StudentAI(int col,int row,int p)
 
 Move StudentAI::GetMove(Move move)
 {
-    int curr = INT_MIN;
+    int curr = -100;
     Move bestMove;
     if (move.seq.empty())
     {
@@ -102,11 +102,11 @@ int StudentAI::basic_minimax(Board board, int player, int depth, string state){
 
     if (state=="max"){
         thisTurnPlayer = player; //since state is max then the player moving this turn is the same as the init player
-        curBestValue = INT_MIN;
+        curBestValue = -100;
     }
     else{
         thisTurnPlayer = player == 1? 2:1; //reverse if state is min
-        curBestValue = INT_MAX;
+        curBestValue = 100;
     }
     if (COUNT == 14 && depth == 2) {
         cout << "hi" << endl;
