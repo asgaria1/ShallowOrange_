@@ -11,7 +11,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f9a5563-e8d3-4344-a245-38fc79e81352" name="Default Changelist" comment="" />
+    <list default="true" id="1f9a5563-e8d3-4344-a245-38fc79e81352" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/checkers-cpp/StudentAI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/checkers-cpp/StudentAI.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/checkers-cpp/cmake-build-debug/Checker_Teacher.exe" beforeDir="false" afterPath="$PROJECT_DIR$/src/checkers-cpp/cmake-build-debug/Checker_Teacher.exe" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +26,14 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1SlFWsJrGeBBLCesgmh72kVN8Pc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ShallowOrange_" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunDashboard">
@@ -42,7 +49,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Checker_Teacher" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Checker_Teacher" TARGET_NAME="Checker_Teacher" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Checker_Teacher" RUN_TARGET_NAME="Checker_Teacher">
+    <configuration name="Checker_Teacher" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="8 8 3 m 1" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Checker_Teacher" TARGET_NAME="Checker_Teacher" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Checker_Teacher" RUN_TARGET_NAME="Checker_Teacher">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -60,10 +67,22 @@
       <updated>1572130310687</updated>
       <workItem from="1572130316073" duration="1013000" />
       <workItem from="1572131367356" duration="23000" />
+      <workItem from="1572244577016" duration="713000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
